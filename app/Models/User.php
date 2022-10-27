@@ -3,8 +3,10 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class User{
+class User extends Model{
 	use HasFactory;
 
 	/**
@@ -12,14 +14,14 @@ class User{
 	 *
 	 * @var bool
 	 */
-	public bool $timestamps = true;
+	public $timestamps = true;
 
 	/**
 	 * The attributes that are mass assignable.
 	 *
 	 * @var array<int, string>
 	 */
-	protected array $fillable = [
+	protected $fillable = [
 		'email',
 		'first_name',
 		'last_name',
@@ -31,13 +33,16 @@ class User{
 	 *
 	 * @var array<int, string>
 	 */
-	protected array $hidden = [];
+	protected $hidden = [];
 
 	/**
 	 * The attributes that should be cast.
 	 *
 	 * @var array<string, string>
 	 */
-	protected array $casts = [
-	];
+	protected $casts = [];
+
+	public function group(): BelongsTo{
+		return $this->belongsTo(Group::class);
+	}
 }
