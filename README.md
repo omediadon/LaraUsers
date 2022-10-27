@@ -12,7 +12,7 @@
 
 
 ### Routes
- - /users/{id} : GET/POST/PATCH/DELETE
+ - /api/users/{id} : GET/POST/PATCH/DELETE
    - Get the list of users/user, create/alter a user, delete a user
- - /groups/{id} : GET/POST/PATCH/DELETE
+ - /api/groups/{id} : GET/POST/PATCH/DELETE
    - Get the list of groups/group, create/alter a group, delete a group
