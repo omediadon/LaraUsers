@@ -26,6 +26,7 @@ class User extends Model{
 		'first_name',
 		'last_name',
 		'active',
+		'group_id',
 	];
 
 	/**
@@ -33,14 +34,18 @@ class User extends Model{
 	 *
 	 * @var array<int, string>
 	 */
-	protected $hidden = [];
+	protected $hidden = [
+		'group_id',
+	];
 
 	/**
 	 * The attributes that should be cast.
 	 *
 	 * @var array<string, string>
 	 */
-	protected $casts = [];
+	protected $casts = [
+		'active' => 'boolean',
+	];
 
 	public function group(): BelongsTo{
 		return $this->belongsTo(Group::class);
